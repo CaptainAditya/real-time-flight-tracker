@@ -5,47 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <link rel="stylesheet" href="welcome.css">
+    <script src = "slides.js" defer></script>
     <title>SkyView</title>
 </head>
 <body>
-    <div class="container">
-        <div id = "slideShow" class="slideShow">
-            <!-- Full-width images with number and caption text -->
-            <script>
-                var mainDiv = document.getElementById("slideShow");
-                for (let i = 1;i <= 3; i++){
-                    var div = document.createElement("div");
-                    div.className = "slides"
-                    var num_tag = document.createElement('h1');
-                    num_tag.className = "numbertext"
-                    num_tag.textContent = i.toString().concat("/3") 
-                    var img = document.createElement('img')
-                    img.style = "width:100%"
-                    src = "img".concat(i.toString())
-                    src = src.concat(".jpg")
-                    img.src = src
-                    div.appendChild(num_tag)
-                    div.appendChild(img)
-                    mainDiv.appendChild(div);
-                }
-            </script>
-            <!-- Next and previous buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <br>
-          <!-- The dots/circles -->
-        <div id = "dots" style="text-align:center">
-            <script>
-                var toAdd = document.createDocumentFragment();
-                for (let i = 1; i <= 3; i++){
-                    var dot = document.createElement('span')
-                    dot.className = 'dot'
-                    dot.onclick = "currentSlide" + "(" + i.toString + ")"
-                    toAdd.appendChild(dot)
-                }
-                document.getElementById("dots").appendChild(toAdd);
-            </script>
+    <div class="wrap">
+        <div class="container">
+            <div id = "slideShow" class="slideShow">
+                <!-- Full-width images with number and caption text -->
+                <script>
+                    var mainDiv = document.getElementById("slideShow");
+                    for (let i = 1;i <= 3; i++){
+                        var div = document.createElement("div");
+                        div.className = "slides fade"
+                        var num_tag = document.createElement('h1');
+                        num_tag.className = "numbertext"
+                        num_tag.textContent = i.toString().concat("/3") 
+                        var img = document.createElement('img')
+                        img.style = "width:80%"
+                        src = "img".concat(i.toString())
+                        src = src.concat(".jpg")
+                        img.src = src
+                        div.appendChild(num_tag)
+                        div.appendChild(img)
+                        mainDiv.appendChild(div);
+                    }
+                </script>
+                <!-- Next and previous buttons -->
+            </div>
+            <br>
+            <!-- The dots/circles -->
+            <div id = "dots" style="text-align:center">
+                <script>
+                    var toAdd = document.createDocumentFragment();
+                    for (let i = 1; i <= 3; i++){
+                        var dot = document.createElement('span')
+                        dot.className = 'dot'
+                        dot.onclick = "currentSlide" + "(" + i.toString + ")"
+                        toAdd.appendChild(dot)
+                    }
+                    document.getElementById("dots").appendChild(toAdd);
+                </script>
+            </div>
+
+            <div class="welcome-class">
+                <h1>Welcome to SkyView</h1>
+                <p>SkyView is a free and open source flight tracking application.</p>
+                <p>Explore the skies around you or anywhere in the world using out live flight tracking.</p>
+                <p>This app allows you to view the current status of any aircraft!</p>
+                <button class= "button" href = "">Start Tracking!</button>
+                <button class= "button">About Authors</button>
+            </div>
         </div>
     </div>
 </body>
