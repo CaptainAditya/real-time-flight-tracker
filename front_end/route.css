@@ -1,0 +1,43 @@
+body{
+    position: relative;
+}
+.container{
+    position: relative;
+    margin-right: 440px;
+}
+.search-header{
+    color: white;
+    background-color: #07c;
+    font-family: LatoLight;
+    font-weight: lighter !important;
+    padding-left: 0.5em;
+    font-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    line-height: 45px;
+    text-indent: 15px;
+    letter-spacing: 1px;
+}
+.filter-box{
+    position: relative;
+    margin-top:20px;
+    height:150px;
+    width : 230px;
+    border-style :solid;
+    
+}
+.w3-table-all {
+    margin-top: 80px;
+    margin-left: 10px;
+}
+.status1{
+    width: 47%;
+}
+input{
+    padding-bottom: 5px;
+}
+
+i{
+    width: 20px;
+    height: 20px;
+}
