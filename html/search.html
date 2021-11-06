@@ -2,23 +2,23 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="../css/search.css">
 </head>
 <body>
     
     <div class="container">
-        <form class="searchbox1" action="../back_end/route.php">
+        <form class="searchbox1" action="../php/route.php">
             <input type="search1" placeholder="Origin" name="origin" />
             <input type="search1" placeholder="Destination" name = "destination" />
             <button type="submit" value="search">&nbsp;</button>
         </form>
 
-        <form class="searchbox" action="../back_end/flight-info.php">
+        <form class="searchbox" action="../php/flight-info.php">
             <input type="search" placeholder="Search by Flight #:" name = "flightICAO" />
             <button type="submit" value="search">&nbsp;</button>
         </form>
 
-        <form class="searchbox" action="../back_end/airport.php">
+        <form class="searchbox" action="../php/airport.php">
             <input type="search" placeholder="Search by Airport:" name = 'airportICAO'/>
             <button type="submit" value="search">&nbsp;</button>
         </form>

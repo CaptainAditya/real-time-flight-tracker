@@ -40,7 +40,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../front_end/route.css">
+    <link rel="stylesheet" href="../css/route.css">
     <script src="https://kit.fontawesome.com/02abbcab9a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -53,14 +53,14 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-            <a class="navbar-brand" href="#">SkyView</a>
+            <a class="navbar-brand" href="../html/welcome.html">SkyView</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="../html/welcome.html">Home</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">API</a></li>
+                <li><a href="https://aviation-edge.com/">API</a></li>
             </ul>
-            <button class="btn btn-danger navbar-btn">Search</button>
+            <button class="btn btn-danger navbar-btn"><a href="../html/search.html"></a> Search</button>
         </div>
     </nav>
     <?php
@@ -91,11 +91,9 @@
         </center>
         <center>
         <div class="filter-box">
-            <br>
+            <h2>filter results</h2>
             <input type="text" id="search" placeholder="Search By Airline">
-            <br>
             <input type="text" id="search" placeholder="Search By status">
-            <br>
             <input type="text" id="search" placeholder="Search By aircraft">
         </div>
         </center>
