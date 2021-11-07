@@ -196,7 +196,7 @@
             
             <div id="map">
                 <script
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJZ4xOAE7Yq90rehEl0jmHRbL5x1vzRfg&callback=initMap&v=weekly"
+                    src="https://maps.googleapis.com/maps/api/js?key=[API_KEY]&callback=initMap&v=weekly"
                     async
                 ></script>
                 <script>
