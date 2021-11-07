@@ -142,7 +142,7 @@
         setcookie($cookie_name, $cookie_value);
         
         $flightICAO = $_GET["flightICAO"];
-        $url =  "http://aviation-edge.com/v2/public/timetable?key=079afd-f408a9&flight_icao=".$flightICAO;
+        $url =  "http://aviation-edge.com/v2/public/timetable?key=[API_KEY]&flight_icao=".$flightICAO;
         $response = file_get_contents($url);
         $tmp = (array)json_decode($response);
         print_r (in_array("error", $tmp) );
