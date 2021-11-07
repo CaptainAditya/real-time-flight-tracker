@@ -115,14 +115,14 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">SkyView</a>
+            <a class="navbar-brand" href="../html/welcome.html">SkyView</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">API</a></li>
+                <li class="active"><a href="../html/welcome.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="https://aviation-edge.com/">API</a></li>
             </ul>
-            <button class="btn btn-danger navbar-btn">Search</button>
+            <button class="btn btn-danger navbar-btn" ><a href="../php/search.php"></a> Search</button>
         </div>
     </nav>
     <?php
@@ -144,18 +144,20 @@
         $flightICAO = $_GET["flightICAO"];
         $url =  "http://aviation-edge.com/v2/public/timetable?key=079afd-f408a9&flight_icao=".$flightICAO;
         $response = file_get_contents($url);
-        $tmp = json_decode($response);
-        if(property_exists($tmp[0], "error") == false){
-            $departure_terminal = $tmp[0]->departure->terminal;
-            $arrival_terminal = $tmp[0]->arrival->terminal;
-            $departure_time = explode('T', $tmp[0]->departure->scheduledTime);
-            $arrival_time = explode('T', $tmp[0]->arrival->scheduledTime); 
-        } 
-        else{
+        $tmp = (array)json_decode($response);
+        print_r (in_array("error", $tmp) );
+        
+        if(in_array("error", $tmp)){
             $departure_terminal = NULL;
             $arrival_terminal = NULL;
             $departure_time = array("-","-");
             $arrival_time = array("-", "-"); 
+        } 
+        else{
+            $departure_terminal = $tmp[0]->departure->terminal;
+            $arrival_terminal = $tmp[0]->arrival->terminal;
+            $departure_time = explode('T', $tmp[0]->departure->scheduledTime);
+            $arrival_time = explode('T', $tmp[0]->arrival->scheduledTime); 
         }        
     ?>
     <div class="container" id = "1">

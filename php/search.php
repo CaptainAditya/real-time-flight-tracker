@@ -16,27 +16,54 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="../css/search1.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse" style="width: 1520px;">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-            <a class="navbar-brand" href="#">SkyView</a>
+            <a class="navbar-brand" href="../html/welcome.html">SkyView</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="../html/welcome.html">Home</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">API</a></li>
+                <li><a href="https://aviation-edge.com/">API</a></li>
             </ul>
-            <button class="btn btn-danger navbar-btn">Search</button>
+            <button class="btn btn-danger navbar-btn" ><a href="../php/search.php"></a> Search</button>
         </div>
     </nav>
+    <div class="form-style-10">
+        <h1>Search By Anything!</h1>
+
+        <form class="searchbox1" action="route.php">
+            <label><input type="text" placeholder="Origin" name="origin"/></label> 
+            <label><input type="text" placeholder="Destination" name = "destination" /></label> 
+            <div class="button-section">
+                <input type="submit" value="Search"></input>
+            </div>
+        </form>
+        <h4 style="text-align: center; color:darkred">OR</h4>
+        <form class="searchbox" action="flight-info.php">
+            <label><input type="search" placeholder="Search by Flight #:" name = "flightICAO"/></label>
+            <div class="button-section">
+                <input type="submit" value="Search"></input>
+            </div>
+        </form>
+        <h4 style="text-align: center; color:darkred">OR</h4>
+        <form class="searchbox" action="airport.php">
+            <label><input type="search" placeholder="Search by Airport:" name = 'airportICAO'/></label>
+            <div class="button-section">
+                <input type="submit" value="Search"></input>
+            </div>
+        </form>
+    </div>
     <div class="w3-container">
             <h2>Suggestions</h2>
             
@@ -75,23 +102,7 @@
                 });
             </script>
         </div>
-    <div class="container">
-        <form class="searchbox1" action="route.php">
-            <input type="search1" placeholder="Origin" name="origin" />
-            <input type="search1" placeholder="Destination" name = "destination" />
-            <button type="submit" value="search">&nbsp;</button>
-        </form>
-
-        <form class="searchbox" action="flight-info.php">
-            <input type="search" placeholder="Search by Flight #:" name = "flightICAO" />
-            <button type="submit" value="search">&nbsp;</button>
-        </form>
-
-        <form class="searchbox" action="airport.php">
-            <input type="search" placeholder="Search by Airport:" name = 'airportICAO'/>
-            <button type="submit" value="search">&nbsp;</button>
-        </form>
-    </div>
+    
     
 </body>
 </html> 

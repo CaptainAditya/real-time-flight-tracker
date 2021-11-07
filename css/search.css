@@ -25,6 +25,7 @@ body{
 }
 .navbar{
     width: 1520px;
+    margin-top: -25px;
 }
 .wrap{
     position: relative;
@@ -186,3 +187,4 @@ input::placeholder{
     margin-left: 70%;
     width: 20%;
 }
+

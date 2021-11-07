@@ -55,6 +55,21 @@
         $departures = $p->getDepartures($_GET["airportICAO"]);
         $arrivals = $p->getArrivals($_GET["airportICAO"]);
     ?>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="../html/welcome.html">SkyView</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="../html/welcome.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="https://aviation-edge.com/">API</a></li>
+            </ul>
+            <button class="btn btn-danger navbar-btn" ><a href="../php/search.php"></a> Search</button>
+        </div>
+    </nav>
+    <div class="title">
+        <h2>Search Result for <?php echo $p->getAirportName($_GET["airportICAO"])?></h2>    </div>
     <div class="tables">
         <div class="w3-container">
             <h2>Departures</h2>

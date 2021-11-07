@@ -10,4 +10,13 @@ table {
     float: left;
     width: 50%;
     padding: 5px;
-  }
+}
+
+
+.title {
+    margin: 25px;
+    font-family: inherit;
+    background-color: cornflowerblue;
+    border-radius: 3px;
+    border: 1px solid;
+}

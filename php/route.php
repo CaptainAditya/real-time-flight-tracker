@@ -53,14 +53,14 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-            <a class="navbar-brand" href="../html/welcome.html">SkyView</a>
+            <a class="navbar-brand" href="#">SkyView</a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="../html/welcome.html">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="https://aviation-edge.com/">API</a></li>
             </ul>
-            <button class="btn btn-danger navbar-btn"><a href="../html/search.html"></a> Search</button>
+            <button class="btn btn-danger navbar-btn">Search</button>
         </div>
     </nav>
     <?php
