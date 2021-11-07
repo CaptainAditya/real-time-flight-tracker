@@ -140,6 +140,23 @@
         $cookie_name = "url";
         $cookie_value = $airlineIcaoCode;
         setcookie($cookie_name, $cookie_value);
+        
+        $flightICAO = $_GET["flightICAO"];
+        $url =  "http://aviation-edge.com/v2/public/timetable?key=079afd-f408a9&flight_icao=".$flightICAO;
+        $response = file_get_contents($url);
+        $tmp = json_decode($response);
+        if(property_exists($tmp[0], "error") == false){
+            $departure_terminal = $tmp[0]->departure->terminal;
+            $arrival_terminal = $tmp[0]->arrival->terminal;
+            $departure_time = explode('T', $tmp[0]->departure->scheduledTime);
+            $arrival_time = explode('T', $tmp[0]->arrival->scheduledTime); 
+        } 
+        else{
+            $departure_terminal = NULL;
+            $arrival_terminal = NULL;
+            $departure_time = array("-","-");
+            $arrival_time = array("-", "-"); 
+        }        
     ?>
     <div class="container" id = "1">
         <div class="flight_info" id = "2"> 
@@ -163,11 +180,18 @@
             <div class="departure_info">
                 <h2><?php echo $departureRow['depIataCode'] ?></h2>
                 <h2><?php echo $departureAirportRow['nameAirport'].", ".$departureAirportRow['nameCountry'] ?></h2>
+                <h2><?php echo $departure_time[0] ?></h2>
+                <h2><?php echo $departure_time[1] ?></h2>
+                <h3 style="color: orange;">Left Terminal : <?php echo $departure_terminal ?></h3>
             </div>
             <div class="arrival_info">
                 <h2><?php echo $arrivalRow['arrivalIataCode'] ?></h2>
                 <h2><?php echo $arrivalAirportRow['nameAirport'].", ".$arrivalAirportRow['nameCountry'] ?></h2>
+                <h2><?php echo $arrival_time[0] ?></h2>
+                <h2><?php echo $arrival_time[1] ?></h2>
+                <h3 style="color: darkgreen;">Arriving Terminal : <?php echo $arrival_terminal ?></h3>
             </div>
+            
             <div id="map">
                 <script
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJZ4xOAE7Yq90rehEl0jmHRbL5x1vzRfg&callback=initMap&v=weekly"

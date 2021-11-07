@@ -1,0 +1,75 @@
+Declare json varchar(max)
+
+SELECT @json = BulkColumn
+FROM OPENROWSET (BULK 'E:\Temp\Data\AllState.JSON', SINGLE_CLOB) as j
+
+DROP PROCEDURE IF EXISTS dbo.AirplaneInsertJson
+GO
+CREATE PROCEDURE dbo.AirplaneInsertJson
+AS BEGIN
+	INSERT INTO airplanes (airplaneIataType, engineCount, enginesType, numberRegistration, planeAge, productionLine)
+	SELECT airplaneIataType, engineCount, enginesType, numberRegistration, planeAge, productionLine
+	FROM OPENJSON(@json)
+		WITH (airplaneIataType varchar(255), engineCount int(11), enginesType varchar(255), numberRegistration varchar(255), planeAge int(11), productionLine varchar(255))
+END
+DROP PROCEDURE IF EXISTS dbo.AirlinesInsertJson
+GO
+CREATE PROCEDURE dbo.AirlinesInsertJson
+AS BEGIN
+	INSERT INTO airlines (ageFleet, callsign, enginesType, codeHub, codeIataAirline, codeIcaoAirline, founding, nameAirline, nameCountry, sizeAirline)
+	SELECT ageFleet, callsign, enginesType, codeHub, codeIataAirline, codeIcaoAirline, founding, nameAirline, nameCountry, sizeAirline
+	FROM OPENJSON(@json)
+		WITH (ageFleet varchar(255), callsign int(11), enginesType varchar(255), codeHub varchar(255), codeIataAirline int(11), codeIcaoAirline varchar(255), founding int(255), nameAirline varchar(255), nameCountry varchar(255), sizeAirline int(255))
+END
+
+DROP PROCEDURE IF EXISTS dbo.AirportsInsertJson
+GO
+CREATE PROCEDURE dbo.AirportsInsertJson
+AS BEGIN
+	INSERT INTO airports(codeIataAirport, codeIcaoAirport, latitudeAirport, longitudeAirport, nameAirport, nameCountry, time_zone)
+	SELECT codeIataAirport, codeIcaoAirport, latitudeAirport, longitudeAirport, nameAirport, nameCountry, time_zone
+	FROM OPENJSON(@json)
+		WITH (codeIataAirport varchar(255), codeIcaoAirport varchar(255), latitudeAirport decimal(10, 6), longitudeAirport decimal(10, 6), nameAirport varchar(255), nameCountry varchar(255), time_zone varchar(255))
+END
+
+
+DROP PROCEDURE IF EXISTS dbo.ArrivalsInsertJson
+GO
+CREATE PROCEDURE dbo.ArrivalsInsertJson
+AS BEGIN
+	INSERT INTO arrivals(flightICAO, arrivalIcaoCode, arrivalIataCode)
+	SELECT flightICAO, arrivalIcaoCode, arrivalIataCode
+	FROM OPENJSON(@json)
+		WITH (flightICAO varchar(255), arrivalIcaoCode varchar(255), arrivalIataCode varchar(255))
+END
+
+DROP PROCEDURE IF EXISTS dbo.current_statusInsertJson
+GO
+CREATE PROCEDURE dbo.current_statusInsertJson
+AS BEGIN
+	INSERT INTO current_status(flightICAO, altitude, direction, latitude, longitude, horizontalSpeed, verticalSpeed, isGround)
+	SELECT flightICAO, altitude, direction, latitude, longitude, horizontalSpeed, verticalSpeed, isGround
+	FROM OPENJSON(@json)
+		WITH (flightICAO varchar(255), altitude decimal(10, 0), direction decimal(10, 0), latitude decimal(10, 6), longitude decimal(10, 6), horizontalSpeed decimal(10, 0), verticalSpeed decimal(10, 0), isGround decimal(10, 0))
+END
+
+
+DROP PROCEDURE IF EXISTS dbo.departuresInsertJson
+GO
+CREATE PROCEDURE dbo.departuresInsertJson
+AS BEGIN
+	INSERT INTO departures(flightICAO, altitude, direction, latitude, longitude, horizontalSpeed, verticalSpeed, isGround)
+	SELECT flightICAO, altitude, direction, latitude, longitude, horizontalSpeed, verticalSpeed, isGround
+	FROM OPENJSON(@json)
+		WITH (flightICAO varchar(255), altitude decimal(10, 0), direction decimal(10, 0), latitude decimal(10, 6), longitude decimal(10, 6), horizontalSpeed decimal(10, 0), verticalSpeed decimal(10, 0), isGround decimal(10, 0))
+END
+
+DROP PROCEDURE IF EXISTS dbo.flightInsertJson
+GO
+CREATE PROCEDURE dbo.flightInsertJson
+AS BEGIN
+	INSERT INTO flight(aircraftRegNumber, airlineIcaoCode, flightIcaoNumber, status)
+	SELECT aircraftRegNumber, airlineIcaoCode, flightIcaoNumber, status
+	FROM OPENJSON(@json)
+		WITH (aircraftRegNumber varchar(255), airlineIcaoCode varchar(255), flightIcaoNumber varchar(255), status varchar(255))
+END

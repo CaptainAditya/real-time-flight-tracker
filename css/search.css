@@ -1,5 +1,20 @@
-body {
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+body{
+  background-color: #b3cdd1;
+  background-image: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
+  min-height: 50vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+
 .byline{
     text-align:center;
     font-size:18px;
@@ -8,7 +23,9 @@ body {
     text-decoration:none;
     color: #ce0000;
 }
-
+.navbar{
+    width: 1520px;
+}
 .wrap{
     position: relative;
 }
@@ -28,16 +45,15 @@ body {
 }
 
 .container{
-    position:relative;
-    margin-left: 17%;
-    margin-top: 20%;
+    margin-top: -30%;
+
 }
 
 .searchbox{
     background-color:#fffbf8;
     padding:13px;
     width:335px;
-    margin:10px;
+    margin: 10px;
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
@@ -109,6 +125,7 @@ button[type="submit"]{
     padding:13px;
     width:335px;
     margin:10px;
+    margin-left: 7%;
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
@@ -160,4 +177,12 @@ input[type="search1"]{
         0 2px 4px 0 #b2b2b2 inset,
         0 -1px 1px 0 #f2f2f2 inset,
         0 15px 15px 0 rgba(41, 41, 41, 0.09) inset;
+}
+input::placeholder{
+  color: rgba(134, 126, 126, 0.972);
+}
+
+.w3-container{
+    margin-left: 70%;
+    width: 20%;
 }
